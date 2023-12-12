@@ -157,12 +157,12 @@
         <div class="imgHolder">
           <div class="smImg">
             <% for (let i=0; i < prod.ImageName.length; i++) { %>
-              <img class="sm-img" src="http://localhost:3001/getImages/<%= prod.ImageName[i] %>"
+              <img class="sm-img" src="/images/<%= prod.ImageName[i] %>"
                 alt="<%= prod.name %>" />
               <% } %>
           </div>
           <div class="mainImg">
-            <img id="main-img" src="http://localhost:3001/getImages/<%= prod.ImageName[0] %>" alt="<%= prod.name %>">
+            <img id="main-img" src="/images/<%= prod.ImageName[0] %>" alt="<%= prod.name %>">
           </div>
         </div>
         <div class="btnHolder">

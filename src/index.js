@@ -25,6 +25,7 @@ app.set('view engine', 'ejs');
 app.set('views','views');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
+app.use('/images',express.static(path.join(__dirname,'uploads')));
 app.use(cookieParser());
 app.use(session({
     secret: 'gamingHavenSecretForUserSession',
@@ -171,23 +172,43 @@ app.get('/games',async(req,res)=>{
   res.render('games',{loginSuccess : req.session.loginSuccess , gameData : gameData});
 })
 
-app.get('/getImages/:name',async(req,res)=>{
-  let {name} = req.params;
-  var options = {
-    root : path.join(__dirname+'/uploads'),
-    dotfiles : 'deny',
-    headers : {
+// app.get('/getImages/:name',async(req,res)=>{
+//   let {name} = req.params;
+//   var options = {
+//     root : path.join(__dirname+'/uploads'),
+//     dotfiles : 'deny',
+//     headers : {
+//       'x-timestamp': Date.now(),
+//       'x-sent': true
+//     }
+//   }
+//   await res.sendFile(name,options,(err)=>{
+//     if(err){
+//       console.log(err);
+//     }
+//   })
+// })
+
+app.get('/getImages/:name', async (req, res) => {
+  const { name } = req.params;
+  const options = {
+    root: path.join(__dirname, 'uploads'),
+    dotfiles: 'deny',
+    headers: {
       'x-timestamp': Date.now(),
-      'x-sent': true
-    }
+      'x-sent': true,
+    },
+  };
+
+  try {
+    console.log(`Trying to get image file: ${name}`);
+    await res.sendFile(`/images/${name}`, options);
+  } catch (err) {
+    console.error(err);
   }
-  console.log('tried getting image files');
-  await res.sendFile(name,options,(err)=>{
-    if(err){
-      console.log(err);
-    }
-  })
-})
+});
+
+
 
 app.get('/playgame/:_id',async(req,res)=>{
   const id = req.params;
