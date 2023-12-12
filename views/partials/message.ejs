@@ -1,0 +1,10 @@
+<% if (messages.error) { %>
+  <div class="alert alert-danger" role="alert" style="background-color: red;">
+    <%= messages.error %>
+  </div>
+<% } %>
+<% if (messages.success) { %>
+  <div class="alert alert-success" role="alert" style="background-color: greenyellow;">
+    <%= messages.success %>
+  </div>
+<% } %>

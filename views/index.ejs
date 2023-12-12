@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Haven</title>
+
+  <!-- 
+    - favicon
+  -->
+
+  <link rel="shortcut icon" href="/css/gaming haven.ico" type="image/x-icon">
+
+  <!--
+    - Bootstrap
+  -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header">
+
+    <div class="header-top">
+      <div class="container">
+        <div class="social-wrapper">
+
+          <p class="social-title">Follow us on :</p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header-bottom skewBg" data-header>
+      <div class="container">
+
+        <a href="/" class="logo">Gaming Haven</a>
+
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+
+            <li class="navbar-item">
+              <a href="#home" class="navbar-link skewBg" data-nav-link>Home</a>
+            </li>
+
+            <!-- <li class="navbar-item">
+              <a href="/addgames" class="navbar-link skewBg" data-nav-link>Add Games</a>
+            </li> -->
+
+            <li class="navbar-item">
+              <a href="/games" class="navbar-link skewBg">Play Games</a>
+            </li>
+
+            <li class="navbar-item">
+              <a href="/shop" class="navbar-link skewBg" data-nav-link>Shop</a>
+            </li>
+
+            <% if(!loginSuccess) { %>
+              <li class="navbar-item">
+                <a href="/signIn" class="navbar-link skewBg">Sign In</a>
+              </li>
+              <% }else{ %>
+                <li class="navbar-item">
+                  <a href="/logout" class="navbar-link skewBg">Log Out</a>
+                </li>
+                <% } %>
+
+              <li class="navbar-item">
+                <a href="#contact" class="navbar-link skewBg" data-nav-link>Contact</a>
+              </li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+
+          <button class="cart-btn" aria-label="cart">
+            <!-- <ion-icon name="cart"></ion-icon>
+
+            <span class="cart-badge">0</span> -->
+          </button>
+
+          <button class="search-btn" aria-label="open search" data-search-toggler>
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+
+          <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+            <ion-icon name="menu-outline" class="menu"></ion-icon>
+            <ion-icon name="close-outline" class="close"></ion-icon>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+
+
+
+  <!-- 
+    - #SEARCH BOX
+  -->
+
+  <div class="search-container" data-search-box>
+
+    <div class="input-wrapper">
+      <input type="search" name="search" aria-label="search" placeholder="Search here..." class="search-field" autocomplete="off">
+
+      <button type="submit" class="search-submit" aria-label="submit search" data-search-toggler>
+        <ion-icon name="search-outline"></ion-icon>
+      </button>
+
+      <button class="search-close" aria-label="close search" data-search-toggler></button>
+    </div>
+
+  </div>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" id="home" aria-label="home" style="background-image: url('/css/images/halo5.jpg')">
+
+      </section>
+
+      <!-- 
+        - #BRAND
+      -->
+
+      <section class="section brand" aria-label="brand">
+        <div class="container">
+
+          <ul class="has-scrollbar">
+
+            <li class="brand-item">
+              <img src="/css/images/brand-1.png" width="90" height="90" loading="lazy" alt="brand logo">
+            </li>
+
+            <li class="brand-item">
+              <img src="/css/images/brand-2.png" width="90" height="90" loading="lazy" alt="brand logo">
+            </li>
+
+            <li class="brand-item">
+              <img src="/css/images/brand-3.png" width="90" height="90" loading="lazy" alt="brand logo">
+            </li>
+
+            <li class="brand-item">
+              <img src="/css/images/brand-4.png" width="90" height="90" loading="lazy" alt="brand logo">
+            </li>
+
+            <li class="brand-item">
+              <img src="/css/images/brand-5.png" width="90" height="90" loading="lazy" alt="brand logo">
+            </li>
+
+            <li class="brand-item">
+              <img src="/css/images/brand-6.png" width="90" height="90" loading="lazy" alt="brand logo">
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- # Game Carousel -->
+
+      <section class="section carous">
+        <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="/css/images/fifa.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/css/images/cyberpunk.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="/css/images/battlefield.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container text-center">
+          <div class="row">
+            <% games.forEach(game=> { %>
+              <div class="col-3 gameCardHolder">
+                <div class="gameCards card">
+                  <img class="gameCardImage" src="<%= game.background_image %>" alt="<%= game.name %>">
+                </div>
+                <div class="gameCardOverlay">
+                  <h2 class="gameCardName">
+                    <%= game.name %>
+                  </h2>
+                  <p class="gameCardRating">
+                    Rating:
+                    <%= game.rating %> / <%= game.rating_top%>
+                  </p>
+                </div>
+              </div>
+
+              <% }); %>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+        - #NEWSLETTER
+      -->
+
+      <section class="newsletter" aria-label="newsletter">
+        <div class="container">
+
+          <div class="newsletter-card">
+
+            <h2 class="h2">
+              Our <span class="span">Newsletter</span>
+            </h2>
+
+            <form action="" class="newsletter-form">
+
+              <div class="input-wrapper skewBg">
+                <input type="email" name="email_address" aria-label="email" placeholder="Enter your email..." required
+                  class="email-field">
+
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+
+              <button type="submit" class="btn newsletter-btn skewBg">
+                <span class="span">Subscribe</span>
+
+                <ion-icon name="paper-plane" aria-hidden="true"></ion-icon>
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">Gaming Haven</a>
+
+          <ul class="contact-list" id="contact">
+
+            <li class="contact-item">
+              <div class="contact-icon">
+                <ion-icon name="location"></ion-icon>
+              </div>
+
+              <address class="item-text">
+                Address : C.U.I.E.T, Chitkara University
+              </address>
+            </li>
+
+            <li class="contact-item">
+              <div class="contact-icon">
+                <ion-icon name="headset"></ion-icon>
+              </div>
+
+              <a href="tel:+917558414417" class="item-text">Phone : +91 7558414417</a>
+            </li>
+
+            <li class="contact-item">
+              <div class="contact-icon">
+                <ion-icon name="mail-open"></ion-icon>
+              </div>
+
+              <a href="mailto:guleriaanurag84@gmail.com" class="item-text">Email : guleriaanurag84@gmail.com</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <!-- <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Products</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Graphics (26)</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Backgrounds (11)</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Fonts (9)</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Music (3)</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Photography (3)</a>
+          </li>
+
+        </ul> -->
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Need Help?</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Terms & Conditions</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Privacy Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Refund Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Affiliate</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Use Cases</a>
+          </li>
+
+        </ul>
+
+        <div class="footer-wrapper">
+
+          <div class="social-wrapper">
+
+            <p class="footer-list-title">Follow Us</p>
+
+            <ul class="social-list">
+
+              <li>
+                <a href="#" class="social-link" style="background-color: #3b5998">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link" style="background-color: #55acee">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link" style="background-color: #d71e18">
+                  <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link" style="background-color: #1565c0">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <div class="footer-newsletter">
+
+            <p class="footer-list-title">Newsletter Sign Up</p>
+
+            <form action="" class="footer-newsletter">
+              <input type="email" name="email_address" aria-label="email" placeholder="Enter your email" required
+                class="email-field">
+
+              <button type="submit" class="footer-btn" aria-label="submit">
+                <ion-icon name="rocket"></ion-icon>
+              </button>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2023 Gaming Haven. All Right Reserved by <a href="#" class="copyright-link">Anurag</a>
+        </p>
+
+        <img src="/css/images/footer-bottom-img.png" width="340" height="21" loading="lazy" alt=""
+          class="footer-bottom-img">
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="caret-up"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

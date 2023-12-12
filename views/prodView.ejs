@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaming Haven</title>
+
+  <!-- 
+    - favicon
+  -->
+
+  <link rel="shortcut icon" href="/css/gaming haven.ico" type="image/x-icon" />
+
+  <!--
+    - Bootstrap
+  -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/css/star.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-top">
+      <div class="container">
+        <div class="social-wrapper">
+          <p class="social-title">Follow us on :</p>
+
+          <ul class="social-list">
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-bottom skewBg" data-header>
+      <div class="container">
+        <a href="/" class="logo">Gaming Haven</a>
+
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="/shop" class="navbar-link skewBg" data-nav-link>Home</a>
+            </li>
+
+            <% if(!loginSuccess) { %>
+              <li class="navbar-item">
+                <a href="/signIn" class="navbar-link skewBg">Sign In</a>
+              </li>
+              <% }else{ %>
+
+                <li class="navbar-item">
+                  <a href="/logout" class="navbar-link skewBg">Log Out</a>
+                </li>
+                <% } %>
+
+                  <li class="navbar-item">
+
+                  </li>
+
+                  <li class="navbar-item">
+                    <a href="#contact" class="navbar-link skewBg" data-nav-link>
+                      Contact
+                    </a>
+                  </li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button class="cart-btn" aria-label="cart">
+            <a href="/cart">
+              <ion-icon name="cart"></ion-icon>
+            </a>
+          </button>
+
+          <button class="search-btn" aria-label="open search" data-search-toggler>
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+
+          <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+            <ion-icon name="menu-outline" class="menu"></ion-icon>
+            <ion-icon name="close-outline" class="close"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEARCH BOX -->
+
+  <div class="search-container" data-search-box>
+    <div class="input-wrapper">
+      <input type="search" name="search" aria-label="search" placeholder="Search here..." class="search-field"
+        autocomplete="off" />
+
+      <button type="submit" class="search-submit" aria-label="submit search" data-search-toggler>
+        <ion-icon name="search-outline"></ion-icon>
+      </button>
+
+      <button class="search-close" aria-label="close search" data-search-toggler></button>
+    </div>
+  </div>
+
+  <!-- MAIN PAGE -->
+
+
+  <div class="prodLandingPage">
+    <% include('partials/message') %>
+      <aside>
+        <div class="imgHolder">
+          <div class="smImg">
+            <% for (let i=0; i < prod.ImageName.length; i++) { %>
+              <img class="sm-img" src="http://localhost:3001/getImages/<%= prod.ImageName[i] %>"
+                alt="<%= prod.name %>" />
+              <% } %>
+          </div>
+          <div class="mainImg">
+            <img id="main-img" src="http://localhost:3001/getImages/<%= prod.ImageName[0] %>" alt="<%= prod.name %>">
+          </div>
+        </div>
+        <div class="btnHolder">
+          <form action="/viewProduct/<%= prod.name %>/addToCart" method="post">
+            <button>Add To Cart</button>
+          </form>
+          <button>Buy Now</button>
+        </div>
+      </aside>
+      <section>
+        <h1>
+          <%= prod.name %>
+        </h1>
+        <div class="ratingReview">
+          <span class="rating">
+            <% let sum=0; %>
+              <% for (let i=0; i < prod.reviews.length; i++) { %>
+                <% sum +=prod.reviews[i].rating; %>
+                  <% } %>
+                    <% const averageRating=prod.reviews.length> 0 ? sum / prod.reviews.length : 0; %>
+                      <%= averageRating %>
+                        <i class="fa-sharp fa-solid fa-star" style="color: #1d191f;"></i>
+          </span>
+          <span>
+            <%= prod.reviews.length %> Reviews
+          </span>
+        </div>
+        <h2 style="margin-bottom: 5vh;">
+          <i class="fa-sharp fa-solid fa-indian-rupee-sign" style="color: #1d191f;"></i>
+          <%= prod.price %>
+        </h2>
+        <h3>Warranty : 1 year</h3>
+        <div>
+          <p>Seller: <span id="seller">
+              <%= prod.author.name %>
+            </span></p>
+          <span>Stock Available : <%= prod.maxStock %></span>
+        </div>
+        <div class="prodDescription">
+          <h3>Description: </h3>
+          <p>
+            <%= prod.Desc %>
+          </p>
+        </div>
+        <div class="reviewForm">
+          <form action="/viewProduct/<%= prod.name %>/addReview" method="post">
+            <fieldset class="starability-basic">
+              <legend>Rating: </legend>
+              <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked
+                aria-label="No rating." />
+              <input type="radio" id="first-rate1" name="rating" value="1" />
+              <label for="first-rate1" title="Terrible">1 star</label>
+              <input type="radio" id="first-rate2" name="rating" value="2" />
+              <label for="first-rate2" title="Not good">2 stars</label>
+              <input type="radio" id="first-rate3" name="rating" value="3" />
+              <label for="first-rate3" title="Average">3 stars</label>
+              <input type="radio" id="first-rate4" name="rating" value="4" />
+              <label for="first-rate4" title="Very good">4 stars</label>
+              <input type="radio" id="first-rate5" name="rating" value="5" />
+              <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
+            <textarea name="comment" id="" cols="80" rows="5" placeholder="write your review here.."></textarea>
+            <% if(loginSuccess===false) {%>
+              <p style="color: #d71e18;">You need to login/signUp first</p>
+              <% } else { %>
+                <button type="submit">Add Review</button>
+                <% } %>
+          </form>
+        </div>
+
+        <div class="reviewSection">
+          <h2 style="margin-bottom: 3vh;">User Reviews : </h2>
+          <% for(let review of prod.reviews) { %>
+            <div class="review">
+              <p>Rating: </p>
+              <p class="starability-result" data-rating="<%=review.rating%>">
+                Rated: <%=review.rating%> stars
+              </p>
+              <p>Comment: </p>
+              <p>
+                <%= review.comment %>
+              </p>
+              <% if(review.author.name !== null) { %>
+                <p id="reviewAuthor">review by <%= review.author.name %>
+                <% } %>
+              </p>
+              <% if(review.author._id.toString() === currUserID) { %>
+                <div class="revBtnContainer">
+                  <button>Edit</button>
+                  <button>Delete</button>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+      </section>
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo">Gaming Haven</a>
+
+          <ul class="contact-list" id="contact">
+            <li class="contact-item">
+              <div class="contact-icon">
+                <ion-icon name="location"></ion-icon>
+              </div>
+
+              <address class="item-text">
+                Address : C.U.I.E.T, Chitkara University
+              </address>
+            </li>
+
+            <li class="contact-item">
+              <div class="contact-icon">
+                <ion-icon name="headset"></ion-icon>
+              </div>
+
+              <a href="tel:+917558414417" class="item-text">Phone : +91 7558414417</a>
+            </li>
+
+            <li class="contact-item">
+              <div class="contact-icon">
+                <ion-icon name="mail-open"></ion-icon>
+              </div>
+
+              <a href="mailto:guleriaanurag84@gmail.com" class="item-text">Email : guleriaanurag84@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Need Help?</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Terms & Conditions</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Privacy Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Refund Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Affiliate</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Use Cases</a>
+          </li>
+        </ul>
+
+        <div class="footer-wrapper">
+          <div class="social-wrapper">
+            <p class="footer-list-title">Follow Us</p>
+
+            <ul class="social-list">
+              <li>
+                <a href="#" class="social-link" style="background-color: #3b5998">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link" style="background-color: #55acee">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link" style="background-color: #d71e18">
+                  <ion-icon name="logo-pinterest"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link" style="background-color: #1565c0">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-newsletter">
+            <p class="footer-list-title">Newsletter Sign Up</p>
+
+            <form action="" class="footer-newsletter">
+              <input type="email" name="email_address" aria-label="email" placeholder="Enter your email" required
+                class="email-field" />
+
+              <button type="submit" class="footer-btn" aria-label="submit">
+                <ion-icon name="rocket"></ion-icon>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">
+          &copy; 2023 Gaming Haven. All Right Reserved by
+          <a href="#" class="copyright-link">Anurag</a>
+        </p>
+
+        <img src="/css/images/footer-bottom-img.png" width="340" height="21" loading="lazy" alt=""
+          class="footer-bottom-img" />
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="caret-up"></ion-icon>
+  </a>
+
+  <script>
+    let smImages = document.querySelectorAll('.sm-img');
+    let mainImg = document.getElementById('main-img');
+
+    smImages.forEach(smImg => {
+      smImg.addEventListener('mouseover', () => {
+        console.log(smImg.src);
+        mainImg.src = smImg.src;
+      })
+    })
+  </script>
+
+  <!-- 
+        - custom js link
+      -->
+  <script src="/js/script.js" defer></script>
+
+  <!-- 
+        - ionicon link
+      -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

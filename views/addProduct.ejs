@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/css/gaming haven.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/addProduct.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Gaming Haven</title>
+</head>
+
+<body>
+    <form action="/addProducts" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Product Details</legend>
+            <!-- <label for="prodName" class="marg">Name: </label><br> -->
+            <input type="text" name="prodName" class="input-box" placeholder="Name" autocomplete="off"><br>
+            <label for="image">Image: </label><br>
+            <input type="file" name="image" multiple><br>
+            <!-- <label for="prodCategory">Category: </label><br> -->
+            <input name="prodCategory" class="input-box" list="prodCategory" placeholder="Category"><br>
+            <datalist id="prodCategory">
+                <option value="Headphone"></option>
+                <option value="Mouse"></option>
+                <option value="Mouse Pad"></option>
+                <option value="Controller"></option>
+                <option value="Monitor"></option>
+            </datalist>
+            <!-- <label for="prodPrice">Price: </label><br> -->
+            <input type="number" class="input-box" name="prodPrice" step="0.01" placeholder="Price"><br>
+            <label for="prodDesc">Description: </label><br>
+            <textarea name="prodDesc" cols="58" rows="7"></textarea><br>
+            <button type="submit" class="btn">Add Product</button>
+        </fieldset>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Haven</title>
+</head>
+<body>
+    <form action="/addgames" method="post" enctype="multipart/form-data">
+        <label for="img">Image:</label>
+        <input type="file" name="img" id=""><br>
+        <label for="gameName">Game Name</label><br>
+        <input type="text" name="gameName" autocomplete="off"><br>
+        <label for="srcLink">srcLink</label><br>
+        <textarea name="srcLink" id="" cols="30" rows="10"></textarea><br>
+        <button type="submit">Add Game</button>
+    </form>
+    <br><br><br>
+    <button><a href="/">Home</a></button>
+</body>
+</html>
