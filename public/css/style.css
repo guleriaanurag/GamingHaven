@@ -1383,6 +1383,7 @@ body {
 
     .cardImg{
       min-height: 26vh;
+      max-height: 26vh;
     }
 
  /**
