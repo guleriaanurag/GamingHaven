@@ -97,29 +97,41 @@ app.post('/register', async (req, res) => {
 // LOGIN
 
 app.post('/login', async (req, res) => {
-    try {
-      const username = req.body.username;
-      const password = req.body.pass;
-  
-      const loginUser = await newUser.findOne({ name: username });
+  try {
+    const username = req.body.username;
+    const password = req.body.pass;
+
+    const loginUser = await newUser.findOne({ name: username });
+
+    if (loginUser) {
+      // User found in the database
       req.session.loginSuccess = await bcrypt.compare(password, loginUser.password);
-      if (req.session.loginSuccess===true) {
+
+      if (req.session.loginSuccess) {
         req.session.userId = loginUser._id;
         req.session.userName = loginUser.name;
-        // console.log(req.session.loginSuccess);
-        if(req.session.redirectUrl === undefined){
+        // console.log("logged In");
+
+        if (req.session.redirectUrl === undefined) {
           res.redirect('/');
+        } else {
+          res.redirect(req.session.redirectUrl);
         }
-        res.redirect(req.session.redirectUrl);
       } else {
-        const flashMessage = encodeURIComponent('Invalid Details')
+        const flashMessage = encodeURIComponent('Invalid Details');
         res.redirect(`/signIn?=${flashMessage}`);
       }
-    } catch (error) {
-      console.log(error);
-      res.redirect('/signIn');
+    } else {
+      // User not found in the database
+      const flashMessage = encodeURIComponent('User not found');
+      res.redirect(`/signIn?=${flashMessage}`);
     }
-  });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/signIn');
+  }
+});
+
 
 // LOGOUT
 
