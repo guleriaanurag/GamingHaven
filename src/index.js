@@ -181,6 +181,7 @@ app.get('/getImages/:name',async(req,res)=>{
       'x-sent': true
     }
   }
+  console.log('tried getting image files');
   await res.sendFile(name,options,(err)=>{
     if(err){
       console.log(err);
