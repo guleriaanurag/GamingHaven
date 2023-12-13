@@ -62,14 +62,16 @@ cards.forEach(card=>{
   card.addEventListener('click',()=>{
     var gameName = card.querySelector('h2').innerText;
     // console.log(gameName);
-    window.location.href = `http://localhost:3001/gameDetails/${gameName}`;
+    // window.location.href = `http://localhost:3001/gameDetails/${gameName}`;
+    window.location.href = `https://gaming-haven.onrender.com/gameDetails/${gameName}`;
   })
 })
 
 var searchBtn = document.querySelector('.search-submit');
 searchBtn.addEventListener('click', () => {
   var gameName = document.querySelector('.search-field').value;
-  window.location.href = `http://localhost:3001/searchGame/${gameName}`;
+  // window.location.href = `http://localhost:3001/searchGame/${gameName}`;
+  window.location.href = `https://gaming-haven.onrender.com/searchGame/${gameName}`;
 });
 
 var productCards = document.querySelectorAll('.productCardHolder');
@@ -77,6 +79,7 @@ var productCards = document.querySelectorAll('.productCardHolder');
 productCards.forEach(prodCard=>[
   prodCard.addEventListener('click',()=>{
     var prodName = prodCard.querySelector('h2').innerText;
-    window.location.href = `http://localhost:3001/viewProduct/${prodName}`;
+    // window.location.href = `http://localhost:3001/viewProduct/${prodName}`;
+    window.location.href = `https://gaming-haven.onrender.com/viewProduct/${prodName}`;
   })
 ])

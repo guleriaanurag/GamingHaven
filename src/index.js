@@ -201,7 +201,6 @@ app.get('/getImages/:name', async (req, res) => {
   };
 
   try {
-    console.log(`Trying to get image file: ${name}`);
     await res.sendFile(`/images/${name}`, options);
   } catch (err) {
     console.error(err);
@@ -296,6 +295,7 @@ async function getDetailsByName(gameName) {
 app.get('/gameDetails/:gameName',async(req,res)=>{
   var gameName = req.params.gameName;
   var gameData = await getDetailsByName(gameName);
+  console.log(gameData);
   res.render('landingPage',{gameData: gameData,loginSuccess: req.session.loginSuccess})
   // res.json(gameData);
 })
@@ -334,7 +334,6 @@ app.get('/shop',async(req,res)=>{
 })
 
 app.get('/shop/category/:category',async(req,res)=>{
-  console.log('route hit');
   var prodCategory = req.params.category;
   console.log(prodCategory);
   let categorisedProducts = await product.find({category: prodCategory})
